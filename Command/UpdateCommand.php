@@ -1,6 +1,6 @@
 <?php
 
-namespace Precom\KeywordBundle\Command;
+namespace Lifeinthecloud\KeywordBundle\Command;
 
 use Symfony\Bundle\FrameworkBundle\Command\ContainerAwareCommand;
 use Symfony\Component\Console\Input\InputInterface;

@@ -1,8 +1,8 @@
 <?php
 
-namespace Precom\KeywordBundle\Service;
+namespace Lifeinthecloud\KeywordBundle\Service;
 
-use Precom\KeywordBundle\Exception\KeywordException;
+use Lifeinthecloud\KeywordBundle\Exception\KeywordException;
 use Symfony\Component\HttpKernel\Config\FileLocator;
 
 class KeywordService
@@ -44,7 +44,7 @@ class KeywordService
     {
         $fileResource = $this
             ->fileLocator
-            ->locate('@PrecomKeywordBundle/'.$this->getParameter('dictionary.directory').'/'.$file.'.gz.php');
+            ->locate('@LifeinthecloudKeywordBundle/'.$this->getParameter('dictionary.directory').'/'.$file.'.gz.php');
 
         if(file_exists($fileResource))
             return unserialize(gzuncompress(file_get_contents(
