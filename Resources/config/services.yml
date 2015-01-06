@@ -1,0 +1,5 @@
+services:
+    precom_keyword.service:
+        class: Precom\KeywordBundle\Service\KeywordService
+        arguments:
+            - @file_locator
