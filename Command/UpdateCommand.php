@@ -18,7 +18,7 @@ class UpdateCommand extends ContainerAwareCommand
     protected function configure()
     {
         $this
-            ->setName('precom:keyword:update')
+            ->setName('lifeinthecloud:keyword:update')
             ->setDescription('Update les dictionnaires des keywords')
         ;
     }
@@ -30,7 +30,7 @@ class UpdateCommand extends ContainerAwareCommand
             $fileResource = $this
                 ->getContainer()
                 ->get('file_locator')
-                ->locate('@PrecomKeywordBundle/' . $this->resourcePath . '/' . $dictionnaryFile.'.txt');
+                ->locate('@LifeinthecloudKeywordBundle/' . $this->resourcePath . '/' . $dictionnaryFile.'.txt');
 
             if (file_exists($fileResource)) {
                 $handle = fopen($fileResource, "r");
@@ -47,7 +47,7 @@ class UpdateCommand extends ContainerAwareCommand
                     $fileCompressed = $this
                         ->getContainer()
                         ->get('file_locator')
-                        ->locate('@PrecomKeywordBundle/' . $this->resourcePath . '/'.$dictionnaryFile.'.gz.php');
+                        ->locate('@LifeinthecloudKeywordBundle/' . $this->resourcePath . '/'.$dictionnaryFile.'.gz.php');
                     $file = fopen($fileCompressed, 'w+');
                     fwrite($file, $dic);
 
