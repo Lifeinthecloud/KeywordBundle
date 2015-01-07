@@ -1,5 +1,5 @@
 services:
     lifeinthecloud_keyword.service:
-        class: Precom\KeywordBundle\Service\KeywordService
+        class: Lifeinthecloud\KeywordBundle\Service\KeywordService
         arguments:
             - @file_locator
