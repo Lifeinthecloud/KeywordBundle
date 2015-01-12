@@ -5,6 +5,17 @@ namespace Lifeinthecloud\KeywordBundle\Service;
 use Lifeinthecloud\KeywordBundle\Exception\KeywordException;
 use Symfony\Component\HttpKernel\Config\FileLocator;
 
+/**
+ * Class KeywordService
+ *
+ * @package Lifeinthecloud\KeywordBundle\Service
+ *
+ * @version 1.0
+ * @date 07/01/2015
+ * @author Antoine DARCHE & Grégory DARCHE (Life in the cloud)
+ * @organisation Lifeinthecloud
+ * @url http://lifeinthecloud.fr
+ */
 class KeywordService
 {
     // paramètres
@@ -20,6 +31,11 @@ class KeywordService
 
     private $fileLocator;
 
+    /**
+     * Construct the keyword service
+     *
+     * @param FileLocator $fileLocator
+     */
     public function __construct ( FileLocator $fileLocator )
     {
         $this->fileLocator = $fileLocator;
@@ -36,11 +52,14 @@ class KeywordService
      * Load a database from a gz.php file.
      *
      * @access  protected
+     *
      * @param   string     $file    File to load.
+     *
      * @return  array
+     *
      * @throw   KeywordException
      */
-    protected function load ( $file = '' )
+    private function load ( $file = '' )
     {
         $fileResource = $this
             ->fileLocator
@@ -58,7 +77,7 @@ class KeywordService
     }
 
     /**
-     * Ajoute un mot à bannir
+     * Adds a word to banish
      *
      * @param string $words
      */
@@ -80,8 +99,14 @@ class KeywordService
     /**
      * Permet d'ajouter du texte
      *
-     * @param string $text
-     * @param string $opt
+     * @access  public
+     *
+     * @param string $text A text
+     * @param string $opt  Option
+     * <ul>
+     *    <li>"+" : it added to the stack</li>
+     *    <li>"=" : replace the entire text of the pile</li>
+     * </ul>
      */
     public function addText ( $text = '', $opt = '+' )
     {
@@ -115,10 +140,17 @@ class KeywordService
     }
 
     /**
-     * Permet de récupérer une liste de mots-clés simple
+     * Retrieves keywords with a single word
      *
-     * @param null $limit
-     * @return array
+     * Returns an array, each key represents
+     * a single word and the value is
+     * the number of iterations of it
+     *
+     * @access  public
+     *
+     * @param integer   $limit  Limit of the number of keywords return
+     *
+     * @return array    The keywords
      */
     public function get_word ( $limit = null )
     {
@@ -142,10 +174,17 @@ class KeywordService
     }
 
     /**
-     * Permet de récupérer une liste de mots-clés composé de deux mots
+     * Retrieves keywords with two words
      *
-     * @param null $limit
-     * @return array
+     * Returns an array, each key represents
+     * a composition of two words and the value is
+     * the number of iterations of it
+     *
+     * @access  public
+     *
+     * @param integer $limit  Limit of the number of keywords return
+     *
+     * @return array The keywords
      */
     public function get_2word ( $limit = null )
     {
@@ -168,6 +207,15 @@ class KeywordService
         return $this->keywords;
     }
 
+    /**
+     * Check if a word can be a keyword
+     *
+     * @access  private
+     *
+     * @param string $word
+     *
+     * @return bool
+     */
     private function isValid ( $word = '' )
     {
         // si pas trop petit
@@ -205,12 +253,26 @@ class KeywordService
         return true;
     }
 
+    /**
+     * Add a keword to the principal array and add one iteration on it
+     * or iterates on the value of the keword
+     *
+     * @access  private
+     *
+     * @param string $word
+     */
     private function addKeyword ( $word = '' )
     {
         // on ajoute au tableau des keywords
         @$this->keywords[$word] += 1;
     }
 
+    /**
+     *  Adds a word to banish
+     *
+     * @param $dictionary   Type of word
+     * @param $word         The word to banish
+     */
     private function banned ( $dictionary, $word )
     {
         @$this->dictionary[$dictionary][$word] += 1;
@@ -220,23 +282,26 @@ class KeywordService
      * Set a parameter to a class.
      *
      * @access  public
-     * @param   string  $key      Key.
-     * @param   mixed   $value    Value.
-     * @return  mixed
-     * @throw   Hoa_Exception
+     *
+     * @param   string  $key      The key
+     * @param   mixed   $value    The value
+     *
      */
     public function setParameter ( $key, $value )
     {
-        return $this->_parameters->setParameter($this, $key, $value);
+        $this->_parameters->setParameter($this, $key, $value);
     }
 
     /**
      * Get a parameter from a class.
      *
      * @access  public
-     * @param   string  $key    Key.
-     * @return  mixed
-     * @throw   Hoa_Exception
+     *
+     * @param   string  $key    The key
+     *
+     * @return  mixed The parameter
+     *
+     * @throw   KeywordException If the parameter is not found
      */
     public function getParameter ( $key )
     {
