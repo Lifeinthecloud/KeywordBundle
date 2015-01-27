@@ -1,6 +1,6 @@
 <?php
 
-namespace Lifeinthecloud\KeywordBundle\Exception;
+namespace LITC\KeywordBundle\Exception;
 
 use Symfony\Component\Form\Exception\ExceptionInterface;
 

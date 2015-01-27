@@ -1,9 +1,9 @@
 <?php
 
-namespace Lifeinthecloud\KeywordBundle;
+namespace LITC\KeywordBundle;
 
 use Symfony\Component\HttpKernel\Bundle\Bundle;
 
-class LifeinthecloudKeywordBundle extends Bundle
+class LITCKeywordBundle extends Bundle
 {
 }

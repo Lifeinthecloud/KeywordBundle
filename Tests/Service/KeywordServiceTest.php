@@ -1,11 +1,11 @@
 <?php
 
-use Lifeinthecloud\KeywordBundle\Service\KeywordService;
+use LITC\KeywordBundle\Service\KeywordService;
 
 /**
  * Class KeywordServiceTest
  *
- * @package Lifeinthecloud\KeywordBundle\Tests\Service
+ * @package LITC\KeywordBundle\Tests\Service
  *
  * @version 1.0
  * @date 07/01/2015

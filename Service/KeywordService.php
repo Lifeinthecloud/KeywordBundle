@@ -1,14 +1,14 @@
 <?php
 
-namespace Lifeinthecloud\KeywordBundle\Service;
+namespace LITC\KeywordBundle\Service;
 
-use Lifeinthecloud\KeywordBundle\Exception\KeywordException;
+use LITC\KeywordBundle\Exception\KeywordException;
 use Symfony\Component\HttpKernel\Config\FileLocator;
 
 /**
  * Class KeywordService
  *
- * @package Lifeinthecloud\KeywordBundle\Service
+ * @package LITC\KeywordBundle\Service
  *
  * @version 1.0
  * @date 07/01/2015
@@ -63,7 +63,7 @@ class KeywordService
     {
         $fileResource = $this
             ->fileLocator
-            ->locate('@LifeinthecloudKeywordBundle/'.$this->getParameter('dictionary.directory').'/'.$file.'.gz.php');
+            ->locate('@LITCKeywordBundle/'.$this->getParameter('dictionary.directory').'/'.$file.'.gz.php');
 
         if(file_exists($fileResource))
             return unserialize(gzuncompress(file_get_contents(

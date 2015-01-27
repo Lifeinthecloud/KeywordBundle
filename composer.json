@@ -1,14 +1,20 @@
 {
     "name": "lifeinthecloud/keyword-bundle",
     "type": "symfony-bundle",
-    "description": "A Symfony2 provides while manipulating text retrieve keywords",
-    "keywords": ["symfony2", "keyword", "metadata"],
-    "homepage": "https://github.com/Ecureuilvirtuel/KeywordBundle",
+    "description": "Symfony LITCKeywordBundle",
+    "keywords": ["symfony2", "keyword", "generate", "metadata"],
+    "homepage": "https://github.com/Lifeinthecloud/KeywordBundle",
     "license": "MIT",
     "authors": [
         {
             "name": "Antoine DARCHE",
             "email": "darche.antoine@gmail.com",        
+			"homepage": "http://www.lifeinthecloud.fr",
+            "role": "Developer"
+        },
+        {
+            "name": "Grégory DARCHE",
+            "email": "tetardo@gmail.com",
 			"homepage": "http://www.lifeinthecloud.fr",
             "role": "Developer"
         }
@@ -21,6 +27,7 @@
         "phpunit/phpunit": "~4.0"
 	},
 	"autoload": {
-        "psr-4": { "Lifeinthecloud\\KeywordBundle\\": "" }
-    }
+        "psr-4": { "LITC\\KeywordBundle\\": "" }
+    },
+    "target-dir": "LITC/VideoPlayerBundle"
 }

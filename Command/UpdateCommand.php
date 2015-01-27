@@ -1,6 +1,6 @@
 <?php
 
-namespace Lifeinthecloud\KeywordBundle\Command;
+namespace LITC\KeywordBundle\Command;
 
 use Symfony\Bundle\FrameworkBundle\Command\ContainerAwareCommand;
 use Symfony\Component\Console\Input\InputInterface;
@@ -18,7 +18,7 @@ class UpdateCommand extends ContainerAwareCommand
     protected function configure()
     {
         $this
-            ->setName('lifeinthecloud:keyword:update')
+            ->setName('litc:keyword:update')
             ->setDescription('Update les dictionnaires des keywords')
         ;
     }
@@ -30,7 +30,7 @@ class UpdateCommand extends ContainerAwareCommand
             $fileResource = $this
                 ->getContainer()
                 ->get('file_locator')
-                ->locate('@LifeinthecloudKeywordBundle/' . $this->resourcePath . '/' . $dictionnaryFile.'.txt');
+                ->locate('@LITCKeywordBundle/' . $this->resourcePath . '/' . $dictionnaryFile.'.txt');
 
             if (file_exists($fileResource)) {
                 $handle = fopen($fileResource, "r");
@@ -47,7 +47,7 @@ class UpdateCommand extends ContainerAwareCommand
                     $fileCompressed = $this
                         ->getContainer()
                         ->get('file_locator')
-                        ->locate('@LifeinthecloudKeywordBundle/' . $this->resourcePath . '/'.$dictionnaryFile.'.gz.php');
+                        ->locate('@LITCKeywordBundle/' . $this->resourcePath . '/'.$dictionnaryFile.'.gz.php');
                     $file = fopen($fileCompressed, 'w+');
                     fwrite($file, $dic);
 
